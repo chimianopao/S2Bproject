@@ -25,19 +25,9 @@ public class example1 {
 //		String title = driver.getTitle();
 //		assertTrue(title.startsWith("Eletrônicos, Eletrodomésticos, Smartphone | Girafa"));
 		
-		//WebDriverWait wait = new WebDriverWait(driver, 5);
-		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("q")));
-		//body > div.container.no-padding > header > div.topoMobile.visible-xs.visible-sm
-		//html/body/div[1]/header/div[2]
-		//WebElement input = driver.findElement(By.xpath("//div[@class='topoMobile visible-xs visible-sm']//div[@id='q']"));
-		
 		
 		WebElement input = driver.findElement(By.xpath("//*[@id=\"buscaprodutoform3\"]//*[@id=\"q\"]"));
 		//WebElement input = driver.findElement(By.id("q"));
-		//WebElement input = driver.findElement(By.id("argumentConv"));
-		
-		//By.xpath("//div[@class='page']//div[@id='_loginButton']")
-		
 		
 		input.sendKeys("celular");
 		input.submit();
