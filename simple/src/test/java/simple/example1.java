@@ -33,13 +33,13 @@ public class example1 {
 		input.submit();
 		
 		driver.findElement(By.xpath("//a[@href='/Telefonia/samsung/smartphone-samsung-galaxy-j5-prime-dourado-dual-chip-32gb-tela-5-4g-camera-13mp-quad-core-1-4-ghz.htm']")).click();
-		
+		//*[@class=\"produto\"]
 		driver.findElement(By.id("calculoFrete")).click();
 		input = driver.findElement(By.id("postalCodeID1"));
 		input.sendKeys("91130020");
 		input.submit();
-		
-		driver.findElement(By.xpath("//*[@class=\"produto\"]//*a[href=\"javascript:comprar()\"]")).click();
+	//	/html/body/div[1]/div[7]/section/div[1]/div/div[4]/div[5]/a[1]/span
+		driver.findElement(By.xpath("//div[@div=/'add-to-cart/html/body/div[1]/div[7]/section/div[1]/div/div[4]/div[5]/a[1]/span']")).click();
 		
 		//<a href="javascript:comprar()"><span class="add-to-cart"> <span class="action-wrapper"> </span> </span> </a>
 		//Thread.sleep(500);
