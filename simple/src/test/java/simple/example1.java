@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class example1 {
-
+/*
 	@Test
 	public void test() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\teste\\Downloads\\chromedriver_win32\\chromedriver.exe");
@@ -36,6 +36,23 @@ public class example1 {
 	//	WebElement element = driver.findElement(By.xpath("//*[@class=\"produto\"]//*[@class=\"add-to-cart\"]")).click();
 
 		driver.quit();
+		
+	}
+	
+	
+	*/
+	@Test
+	public void test2() {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\teste\\Downloads\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		
+		String site = "http://www.girafa.com.br";
+		driver.navigate().to(site);
+		driver.navigate().to("https://www.girafa.com.br/chat-zoo/index.php/por/?site=girafa");
+		WebElement input = driver.findElement(By.name("Username"));
+		input.submit();
+		
+		
 		
 	}
 
