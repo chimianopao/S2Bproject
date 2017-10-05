@@ -39,6 +39,8 @@ public class example1 {
 		
 	}
 	
+	//*[@id="user-popup-window"]/div/div[2]/div/ul/li[1]
+	
 	
 	*/
 	@Test
@@ -51,8 +53,8 @@ public class example1 {
 		driver.navigate().to("https://www.girafa.com.br/chat-zoo/index.php/por/?site=girafa");
 		WebElement input = driver.findElement(By.name("Username"));
 		input.submit();
-		
-		
+		WebElement element = driver.findElement(By.xpath("//*[@id=\"user-popup-window\"]/div/div[2]/div/ul/li[1]"));
+		assertTrue(element.getText().contains("Por favor, digite seu nome"));
 		
 	}
 
