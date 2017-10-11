@@ -33,35 +33,53 @@ public class example1 {
 		input.sendKeys("91130020");
 		input.submit();
 		
-	//	WebElement element = driver.findElement(By.xpath("//*[@class=\"produto\"]//*[@class=\"add-to-cart\"]")).click();
+		WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div[7]/section/div[1]/div/div[4]/div[5]/a[1]/span"));
+		element.click();
 
-		driver.quit();
+		//driver.quit();
 		
 	}
 	
-	
-	
-	
 	*/
 	
-	/*
+	
+	
+	
+	
 	@Test
 	public void testChat() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\teste\\Downloads\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		
+		
+		//teste 1: nome em branco
 		String site = "http://www.girafa.com.br";
 		driver.navigate().to(site);
 		driver.navigate().to("https://www.girafa.com.br/chat-zoo/index.php/por/?site=girafa");
 		WebElement input = driver.findElement(By.name("Username"));
 		input.submit();
-		
+		Thread.sleep(300);
 		WebElement element = driver.findElement(By.xpath("//*[@id=\"user-popup-window\"]/div/div[2]/div/ul/li[1]"));
-		assertTrue(element.getText().contains("Por favor"));
+		assertTrue(element.getText().contains("Por favor, digite seu nome"));
+		
+		//teste 2: email em branco
+		
+		driver.navigate().to(site);
+		driver.navigate().to("https://www.girafa.com.br/chat-zoo/index.php/por/?site=girafa");
+		input = driver.findElement(By.name("Username"));
+		input.sendKeys("joao");
+		input = driver.findElement(By.name("Email"));
+		input.submit();
+		Thread.sleep(300);
+		element = driver.findElement(By.xpath("//*[@id=\"user-popup-window\"]/div/div[2]/div/ul/li[1]"));
+		assertTrue(element.getText().contains("Por favor insira um endereço de email válido"));
+		
+		
+		
 		
 	}
-*/
-	
+
+	/*
 	@Test
 	public void testCadastro() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\teste\\Downloads\\chromedriver_win32\\chromedriver.exe");
@@ -73,8 +91,7 @@ public class example1 {
 		element.click();
 		Thread.sleep(5000);
 		WebElement output = driver.findElement(By.id("numero"));
-		String cpf = new String();
-		cpf = output.getText();
+		String cpf = output.getText();
 	
 		
 		String site = "http://www.girafa.com.br";
@@ -108,8 +125,8 @@ public class example1 {
 		input.sendKeys("M");
 		input = driver.findElement(By.id("documento"));
 		input.sendKeys(cpf);
-		//input = driver.findElement(By.id("documento2"));
-		//input.sendKeys("rg");
+		input = driver.findElement(By.id("documento2"));
+		input.sendKeys("6065453210");
 		input = driver.findElement(By.id("celular"));
 		input.sendKeys("51999999999");
 		input = driver.findElement(By.id("residencial"));
@@ -134,7 +151,7 @@ public class example1 {
 	}
 	
 	
-	
+	*/
 	
 	
 }
