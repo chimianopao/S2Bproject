@@ -16,10 +16,10 @@ public class testeCadastro {
 
 	@Test
 	public void testCadastro() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver", "D:\\Meus Documentos\\Theilor\\chromedriver_win32\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\teste\\Downloads\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
-		
 		driver.manage().window().maximize();
+		
 		driver.navigate().to("http://www.geradordecpf.org/");
 		WebElement element = driver.findElement(By.id("btn-gerar-cpf"));
 		element.click();
@@ -29,10 +29,8 @@ public class testeCadastro {
 		String cpf = output.getAttribute("innerText");
 		//String cpf = output.getText();
 		
-		
 		String site = "http://www.girafa.com.br";
 		driver.navigate().to(site);
-		
 		element = driver.findElement(By.xpath("/html/body/div[1]/header/div[4]/div[1]/div[2]/div[4]/a")); //clica em login
 		element.click();
 		
@@ -40,9 +38,9 @@ public class testeCadastro {
 		element.click();
 		
 		WebElement input = driver.findElement(By.id("email"));
-		input.sendKeys("aaaaaaaaaaaa@aaaaaaaaaa.com");
+		input.sendKeys("aaaaaaaaaaa@aaaaaaaaaa.com");
 		input = driver.findElement(By.id("confirmarEmail"));
-		input.sendKeys("aaaaaaaaaaaa@aaaaaaaaaa.com");
+		input.sendKeys("aaaaaaaaaaa@aaaaaaaaaa.com");
 		input = driver.findElement(By.id("senha"));
 		input.sendKeys("12345");
 		input = driver.findElement(By.id("confirmarSenha"));
@@ -60,30 +58,16 @@ public class testeCadastro {
 		input.sendKeys("10051980");
 		input = driver.findElement(By.id("genero"));
 		input.sendKeys("M");
-		input = driver.findElement(By.id("documento"));
-		input.sendKeys(cpf);
-		input = driver.findElement(By.id("documento2"));
-		input.sendKeys("6065453210");
+		input = driver.findElement(By.id("documento")); //cpf
+		input.sendKeys("02642864057");
+		input = driver.findElement(By.id("documento2")); //rg
+		input.sendKeys("6065953210");
 		input = driver.findElement(By.id("celular"));
 		input.sendKeys("51999999999");
 		input = driver.findElement(By.id("residencial"));
 		input.sendKeys("5133333333");
-		
-	//	driver.findElement(By.xpath("//*[@id='enviar_cadastro']/aside/aside[5]/button")).click();
-		
-		
-		//<input tabindex="1" type="email" value="" required="" name="email" id="email" title="Digite um E-mail válido!" placeholder="E-mail">
-		
-		
-		
-	//	driver.navigate().to("https://www.girafa.com.br/chat-zoo/index.php/por/?site=girafa");
-	//	WebElement input = driver.findElement(By.name("Username"));
-	//	input.submit();
-		
-	//	WebElement element = driver.findElement(By.xpath("//*[@id=\"tituloatendimento\"]"));
-	//	assertTrue(element.getText().contains("Por favor"));
-		
-		
+		input = driver.findElement(By.id("documento2"));
+		input.submit();
 		
 	}
 	

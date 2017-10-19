@@ -16,18 +16,17 @@ public class testesFrete {
 
 	@Test
 	public void testeFreteValido() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver", "D:\\Meus Documentos\\Theilor\\chromedriver_win32\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\teste\\Downloads\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
-		
-		
+		driver.manage().window().maximize();
 		String site = "http://www.girafa.com.br";
 		driver.navigate().to(site);
 		String title = driver.getTitle();
 		assertTrue(title.startsWith("Eletrônicos, Eletrodomésticos, Smartphone | Girafa"));
-		WebElement input = driver.findElement(By.xpath("//*[@id=\"buscaprodutoform1\"]//*[@id=\"q\"]"));
+		WebElement input = driver.findElement(By.xpath("//*[@id=\"buscaprodutoform3\"]//*[@id=\"q\"]"));
 		input.sendKeys("celular");
 		input.submit();
-		driver.findElement(By.xpath("//*[@id=\"results\"]/div[2]/div/div[4]/h5[1]/a")).click();
+		driver.findElement(By.xpath("//*[@id=\"results\"]/div[2]/div/div[3]/a[2]")).click();
 		//String title = driver.getTitle();
 		//assertTrue(title.startsWith("Smartphone Samsung Galaxy J5 Prime Dourado Dual Chip 32GB Tela 5\" 4G Câmera 13MP Quad Core 1.4 GHz - Compre Online | Girafa"));
 		driver.findElement(By.id("calculoFrete")).click();
