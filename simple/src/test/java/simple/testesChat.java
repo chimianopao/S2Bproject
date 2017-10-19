@@ -16,9 +16,9 @@ public class testesChat {
 
 	
 	
-	
+	@Test
 	public void testeNomeEmBranco() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\teste\\Downloads\\chromedriver_win32\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "D:\\Meus Documentos\\Theilor\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		
 		driver.navigate().to("http://www.girafa.com.br");
@@ -28,13 +28,13 @@ public class testesChat {
 		Thread.sleep(300);
 		WebElement element = driver.findElement(By.xpath("//*[@id=\"user-popup-window\"]/div/div[2]/div/ul/li[1]"));
 		assertTrue(element.getText().contains("Por favor, digite seu nome"));
-		
+		Thread.sleep(4000);
 		driver.quit();
 	}
 	
-	
+	@Test
 	public void testeEmailEmBranco() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\teste\\Downloads\\chromedriver_win32\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "D:\\Meus Documentos\\Theilor\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		
 		driver.navigate().to("http://www.girafa.com.br");
@@ -46,13 +46,14 @@ public class testesChat {
 		Thread.sleep(300);
 		WebElement element = driver.findElement(By.xpath("//*[@id=\"user-popup-window\"]/div/div[2]/div/ul/li[1]"));
 		assertTrue(element.getText().contains("Por favor insira um endereço de email válido"));
+		Thread.sleep(4000);
 		driver.quit();
 		
 	}
 	
-	
+	@Test
 	public void testeAssuntoEmBranco() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\teste\\Downloads\\chromedriver_win32\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "D:\\Meus Documentos\\Theilor\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		
 		driver.navigate().to("http://www.girafa.com.br");
@@ -66,12 +67,13 @@ public class testesChat {
 		Thread.sleep(300);
 		WebElement element = driver.findElement(By.xpath("//*[@id=\"user-popup-window\"]/div/div[2]/div/ul/li"));
 		assertTrue(element.getText().contains("Assunto: é exigido"));
+		Thread.sleep(4000);
 		driver.quit();
 	}
 	
-	@Test
+	
 	public void testeTudoCerto() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\teste\\Downloads\\chromedriver_win32\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "D:\\Meus Documentos\\Theilor\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		
 		driver.navigate().to("http://www.girafa.com.br");
