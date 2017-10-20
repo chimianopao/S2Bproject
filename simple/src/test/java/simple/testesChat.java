@@ -52,7 +52,7 @@ public class testesChat {
 	}
 	
 	@Test
-	public void testeAssuntoEmBranco() throws InterruptedException {
+	public void testeAssuntoEmBranco() throws InterruptedException { //pode falhar caso não haja atendentes.
 		System.setProperty("webdriver.chrome.driver", "D:\\Meus Documentos\\Theilor\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		
@@ -71,35 +71,52 @@ public class testesChat {
 		driver.quit();
 	}
 	
-	
-	public void testeTudoCerto() throws InterruptedException {
+	@Test
+	public void testeChatValidoSemAtendente() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "D:\\Meus Documentos\\Theilor\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
-		
 		driver.navigate().to("http://www.girafa.com.br");
 		driver.navigate().to("https://www.girafa.com.br/chat-zoo/index.php/por/?site=girafa");
 		WebElement input = driver.findElement(By.name("Username"));
 		input.sendKeys("joao");
 		input = driver.findElement(By.name("Email"));
 		input.sendKeys("q@ig.com.br");
-		
 		input = driver.findElement(By.name("value_items_admin[0]"));
 		input.sendKeys("Quero Comprar");
-	//	input = driver.findElement(By.name("Question"));
-	//	input.sendKeys("AAAAAAAAAAAAAAAAAAAAAAAAA");
-		
+		input = driver.findElement(By.name("Question"));
+		input.sendKeys("AAAAAAAAAAAAAAAAAAAAAAAAA");
 		input = driver.findElement(By.name("StartChatAction"));
 		input.click();
 		Thread.sleep(300);
 		WebElement element = driver.findElement(By.id("status-chat"));
-		assertTrue(element.getText().contains("Você é o número"));
-		
-	//	WebElement element = driver.findElement(By.xpath("//*[@id='user-popup-window']/div/div[2]/div/text()"));
-	//	assertTrue(element.getText().contains("A sua solicitação foi enviada!"));
-		
+		element = driver.findElement(By.xpath("//*[@id=\"user-popup-window\"]/div/div[2]/div/text()"));
+		assertTrue(element.getText().contains("A sua solicitação foi enviada!"));
 		driver.quit();
 	
 	}
+	
+	@Test
+	public void testeChatValidoComAtendente() throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "D:\\Meus Documentos\\Theilor\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.navigate().to("http://www.girafa.com.br");
+		driver.navigate().to("https://www.girafa.com.br/chat-zoo/index.php/por/?site=girafa");
+		WebElement input = driver.findElement(By.name("Username"));
+		input.sendKeys("joao");
+		input = driver.findElement(By.name("Email"));
+		input.sendKeys("q@ig.com.br");
+		input = driver.findElement(By.name("value_items_admin[0]"));
+		input.sendKeys("Quero Comprar");
+		input = driver.findElement(By.name("StartChatAction"));
+		input.click();
+		Thread.sleep(300);
+		WebElement element = driver.findElement(By.xpath("//*[@id=\"status-chat\"]/h4"));
+		String resposta = element.getText();
+		assertTrue(resposta.contains("Você é o número") || resposta.contains("Neste momento"));
+		driver.quit();
+	
+	}
+	
 	
 	
 	}
